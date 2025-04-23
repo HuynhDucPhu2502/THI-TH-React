@@ -1,13 +1,15 @@
+import { Provider } from "react-redux";
+import { store } from "./store";
+import StudentList from "./components/StudentList";
 
 
 
 function App() {
-
   return (
-    <>
-      <p className='text-3xl text-red-500'>hiaaaaaaa</p>
-    </>
-  )
+    <Provider store={store}>
+      <StudentList/>
+    </Provider>
+  );
 }
 
 export default App
