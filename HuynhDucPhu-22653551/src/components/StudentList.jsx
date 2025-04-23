@@ -3,13 +3,17 @@ import { deleteStudent, updateStudent } from "../features/studentSlice";
 import StudentCard from "./StudentCard";
 import SearchBar from "./SearchBar";
 import ClassFilter from "./ClassFilter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function StudentList() {
   const students = useSelector(state => state.student.list);
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("students", JSON.stringify(students));
+  }, [students]);
 
   const handleDelete = (id) => dispatch(deleteStudent(id));
   const handleEdit = (updatedStudent) => dispatch(updateStudent(updatedStudent));

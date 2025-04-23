@@ -1,10 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+const saved = localStorage.getItem("students");
 const initialState = {
-    list: [
-        { id: 1, name: "Nguyễn Văn A", class: "CTK42", age: 20 },
-        { id: 2, name: "Trần Thị B", class: "CTK43", age: 21 },
-    ]
+    list: saved ?
+        JSON.parse(saved) :
+        [
+            { id: 1, name: "Nguyễn Văn A", class: "CTK42", age: 20 },
+            { id: 2, name: "Trần Thị B", class: "CTK43", age: 21 },
+            { id: 3, name: "Lê Văn C", class: "CTK42", age: 22 },
+        ],
 };
+
+
 const studentSlice = createSlice({
     name: "student",
     initialState,
