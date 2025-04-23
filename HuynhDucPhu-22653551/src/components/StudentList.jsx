@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteStudent, updateStudent } from "../features/studentSlice";
-import StudentCard from "./StudentCard";
+import StudentItem from "./StudentItem";
 import SearchBar from "./SearchBar";
 import ClassFilter from "./ClassFilter";
 import { useEffect, useState } from "react";
@@ -36,7 +36,7 @@ export default function StudentList() {
 
         {/* Danh sách sinh viên */}
         {filtered.map(st => (
-          <StudentCard
+          <StudentItem
             key={st.id}
             student={st}
             onDelete={handleDelete}
