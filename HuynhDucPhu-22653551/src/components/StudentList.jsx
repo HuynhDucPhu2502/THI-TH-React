@@ -12,7 +12,7 @@ export default function StudentList({ onEdit }) {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 w-2/3 mx-auto">
       {students.map(st => (
         <StudentCard
           key={st.id}
