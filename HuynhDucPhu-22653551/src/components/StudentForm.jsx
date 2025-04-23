@@ -1,4 +1,3 @@
-// src/components/StudentForm.jsx
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addStudent } from "../features/studentSlice";
@@ -27,37 +26,51 @@ export default function StudentForm() {
   };
 
   return (
-    <div className="w-fit mx-auto my-12 border-2 rounded-lg">
-        <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow mb-4 space-y-3">
-      <h2 className="text-lg font-semibold">Thêm sinh viên</h2>
-      <input
-        type="text"
-        placeholder="Họ tên"
-        className="w-full border p-2 rounded"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Lớp"
-        className="w-full border p-2 rounded"
-        value={studentClass}
-        onChange={(e) => setStudentClass(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Tuổi"
-        className="w-full border p-2 rounded"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-      />
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white border border-gray-300 rounded-xl shadow-sm p-6 space-y-4"
+    >
+      <h2 className="text-lg font-semibold text-gray-800">Thêm sinh viên</h2>
+
+      <div className="space-y-1">
+        <label className="text-sm font-medium text-gray-600">Họ tên</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Nhập họ tên..."
+          className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+        />
+      </div>
+
+      <div className="space-y-1">
+        <label className="text-sm font-medium text-gray-600">Lớp</label>
+        <input
+          type="text"
+          value={studentClass}
+          onChange={(e) => setStudentClass(e.target.value)}
+          placeholder="Nhập lớp..."
+          className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+        />
+      </div>
+
+      <div className="space-y-1">
+        <label className="text-sm font-medium text-gray-600">Tuổi</label>
+        <input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          placeholder="Nhập tuổi..."
+          className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+        />
+      </div>
+
       <button
         type="submit"
-        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold transition"
       >
-        Thêm sinh viên
+        ➕ Thêm sinh viên
       </button>
     </form>
-    </div>
   );
 }
